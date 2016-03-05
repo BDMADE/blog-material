@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
-  
+
+layout 'themes/materialize/main_layout'
   def index
   end
 
