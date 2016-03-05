@@ -1,1 +1,6 @@
 1. rails g scaffold Post title:string description:text user:references
+2. rails g paperclip Post image
+3. rake db:migrate
+4. rails g scaffold Comment fname:string lname:string email:string message:text post:references
+5. rails generate paperclip comment image
+6. rake db:migrate

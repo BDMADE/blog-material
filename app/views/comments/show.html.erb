@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fname:</strong>
+  <%= @comment.fname %>
+</p>
+
+<p>
+  <strong>Lname:</strong>
+  <%= @comment.lname %>
+</p>
+
+<p>
+  <%= image_tag @comment.image.url(:thumb) %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @comment.email %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @comment.message %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @comment.post.title %>
+</p>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

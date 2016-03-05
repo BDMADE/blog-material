@@ -6,13 +6,19 @@
 </p>
 
 <p>
+  <%= image_tag @post.image.url(:medium) %>
+</p>
+
+
+
+<p>
   <strong>Description:</strong>
   <%= @post.description %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @post.user %>
+  <%= @post.user.name %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

@@ -59,3 +59,7 @@ gem 'cancan'
 # gem paperclip
 
 gem 'paperclip'
+
+
+
+
