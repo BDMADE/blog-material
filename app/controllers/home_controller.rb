@@ -2,6 +2,7 @@ class HomeController < ApplicationController
 
 layout 'themes/materialize/main_layout'
   def index
+    @posts=Post.all
   end
 
 ## this is for admin page

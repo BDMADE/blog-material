@@ -1,56 +1,25 @@
 <div class="row latest-posts">
   <div class="col s12">
 
+    <% @posts.each do |post| %>
     <div class="row post">
       <div class="col s12">
         <div class="card">
           <div class="card-image">
-            <img class="responsive-img" src="img/blog/work-desk.jpg" alt="work desk">
-            <span class="card-title">How to be successful on the Web</span>
+            <%= image_tag post.image.url(:large) %>
+            <span class="card-title"><%= post.title %></span>
           </div>
           <div class="card-content">
-            <p>Many of you want to be successful on the Web but don't know how to do it. In this article we will teach you some basic principles in order to succeed.</p>
+            <p><%= post.description %></p>
           </div>
           <div class="card-action">
-            <a href="post-1.html">READ MORE</a>
+            <%= link_to 'READ MORE',post %>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="row post">
-      <div class="col s12">
-        <div class="card">
-          <div class="card-image">
-            <img class="responsive-img" src="img/blog/mac.jpg" alt="mac desk">
-            <span class="card-title">5 code snippets for your next project</span>
-          </div>
-          <div class="card-content">
-            <p>How many times you thought that if you already had a simple block of code to do a simple task you wouldn't need to do it yourself, because lets face it, you don't want to reinvent the wheel do you?</p>
-          </div>
-          <div class="card-action">
-            <a href="post-1.html">Read more</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row post">
-      <div class="col s12">
-        <div class="card">
-          <div class="card-image">
-            <img class="responsive-img" src="img/blog/lenses.jpg" alt="canon lenses">
-            <span class="card-title">Are stock photos in decline?</span>
-          </div>
-          <div class="card-content">
-            <p>Does it worth to pursue a career as a stock photographer? With so many sites and photographers providing free photos it might look that it doesn't worth even think about it.</p>
-          </div>
-          <div class="card-action">
-            <a href="post-1.html">Read more</a>
-          </div>
-        </div>
-      </div>
-    </div>
+<% end %>
 
     <div class="row">
       <div class="col s12">

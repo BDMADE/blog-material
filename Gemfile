@@ -49,7 +49,7 @@ group :development do
 end
 
 # Use Puma as the app server
-gem 'puma',group: :production
+#gem 'puma',group: :production
 # Using rake cache tools
 gem 'rack-cache', :require => 'rack/cache'
 # install gem better_error
@@ -62,6 +62,12 @@ gem 'cancan'
 # gem paperclip
 
 gem 'paperclip'
+
+# pagination system
+
+gem 'will_paginate'
+
+
 
 
 
