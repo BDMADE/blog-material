@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d90f865e-bde7-4d12-8f26-1be91739d05a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/layouts/themes/materialize/_js.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/pagination.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/problems.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/helpers/will_paginate_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/themes/materialize/_head.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/themes/materialize/_head.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/themes/materialize/main_layout.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/themes/materialize/main_layout.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/materialog.iml" afterPath="$PROJECT_DIR$/.idea/materialog.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/app.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/app.js" />
     </list>
     <ignored path="materialog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -134,10 +124,10 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/pagination.css" />
         <option value="$PROJECT_DIR$/app/views/layouts/themes/materialize/_head.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/themes/materialize/_js.html" />
-        <option value="$PROJECT_DIR$/app/views/layouts/themes/materialize/main_layout.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+        <option value="$PROJECT_DIR$/app/views/layouts/themes/materialize/main_layout.html.erb" />
       </list>
     </option>
   </component>
