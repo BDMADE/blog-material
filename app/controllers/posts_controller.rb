@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user! ,except: :show
+
+  layout 'themes/materialize/main_layout'
 
   # GET /posts
   # GET /posts.json
@@ -10,6 +13,12 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @comment=Comment.new
+    @comments=Comment.where(post_id: params[:id])
+    ## set the session for containing it's post id
+    set_session
+
+
   end
 
   # GET /posts/new
@@ -61,6 +70,9 @@ class PostsController < ApplicationController
     end
   end
 
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -71,4 +83,10 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :description, :user_id,:image)
     end
+
+  ## make a session for containing post params id and it will use in comment/edit method for returning current page
+  def set_session
+    session[:id]=params[:id]
+  end
+
 end

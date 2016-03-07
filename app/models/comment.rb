@@ -2,7 +2,7 @@ class Comment < ActiveRecord::Base
   belongs_to :post
 
   ## add paperclip
-  has_attached_file :image, styles: {thumb: '150x150#' }, default_url: '/images/user1.jpg'
+  has_attached_file :image, styles: {thumb: '150x150#' }, default_url: '/assets/materialize/user.png'
 
   ## for image validation
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/

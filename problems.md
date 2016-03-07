@@ -40,3 +40,34 @@ end
 ### reference: http://stackoverflow.com/questions/13623953/how-to-implement-ajax-pagination-with-will-paginate-gem
    
 
+2. How to make(work) comment form in posts/show.html.erb file ?
+
+solution:
+
+You can render the comment form from comments/form or you can copy and paste code from post/show.html.erb page.
+
+But you have to specify @comment=Comment.new in Post controller as like as:
+
+def show
+    @comment=Comment.new
+end
+
+3. How to show short description of post content ?
+
+solution:
+
+<%=truncate popular.description,length: 210 %>
+
+
+4. How to show default image if commenter does not upload image ?
+
+Open Models->Comment.rb and paste the image path of default or missing image.
+
+Example:
+has_attached_file :image, styles: {thumb: '150x150#' }, default_url: '/assets/materialize/user.png'
+
+Caution: don't use assets/images/...
+
+this path '/assets/materialize/user.png' is goes to open '/assets/images/materialize/user.png' file,
+ 
+ rails always avoids images folder name after assets folder in ruby code ! 

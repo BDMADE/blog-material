@@ -1,46 +1,49 @@
-<%= form_for @comment,html: { multipart: true } do |f| %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+<%= form_for @comment, html: {multipart: true} do |f| %>
+    <% if @comment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-      <ul>
-      <% @comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @comment.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :fname %><br>
+      <%= f.text_field :fname %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :fname %><br>
-    <%= f.text_field :fname %>
-  </div>
-  <div class="field">
-    <%= f.label :lname %><br>
-    <%= f.text_field :lname %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :message %><br>
-    <%= f.text_area :message %>
-  </div>
+    <div class="field">
+      <%= f.label :lname %><br>
+      <%= f.text_field :lname %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :message %><br>
+      <%= f.text_area :message %>
+    </div>
 
     <div class="field">
       <%= f.label :image %><br>
       <%= f.file_field :image %>
       <% if !:image.nil? %>
-     <b>Image uploaded:</b> <%= @comment.image.original_filename %>
+          <b>Image uploaded:</b> <%= @comment.image.original_filename %>
       <% end %>
     </div>
 
-  <div class="field">
-    <%= f.label :post_id %><br>
-    <%= f.text_field :post_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :post_id %><br>
+      <%= f.collection_select :post_id, Post.all, :id, :title, prompt: true %>
+    </div>
+
+
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

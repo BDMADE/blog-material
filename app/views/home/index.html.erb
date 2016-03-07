@@ -10,7 +10,7 @@
             <span class="card-title"><%= post.title %></span>
           </div>
           <div class="card-content">
-            <p><%= post.description %></p>
+            <p><%= truncate post.description,length:270 %></p>
           </div>
           <div class="card-action">
             <%= link_to 'READ MORE',post %>
@@ -29,7 +29,7 @@
 
         <div class="apple_pagination">
 
-          <%= js_will_paginate @posts, :container => false %>
+          <%= will_paginate @posts, :container => false %>
         </div>
 
 
@@ -55,7 +55,7 @@
             <span class="card-title"><% popular.title %></span>
           </div>
           <div class="card-content">
-            <p><%= popular.description %></p>
+            <p><%=truncate popular.description,length: 175 %></p>
           </div>
           <div class="card-action">
             <%= link_to "READ MORE",popular %>
@@ -83,7 +83,7 @@
 
         <div class="archive-post">
           <h6><b><%= link_to archive.title,archive %></b></h6>
-          <p><%= archive.description %></p>
+          <p><%= truncate archive.description, length:130 %></p>
         </div>
 
       </div>

@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
 layout 'themes/materialize/main_layout'
   def index
-    @posts=Post.paginate(:page => params[:page], :per_page => 2)
+    @posts=Post.paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
     @popular_posts=Post.all.order(created_at: :desc).limit(2)
     @archive=Post.all.order(created_at: :asc).limit(8)
 
