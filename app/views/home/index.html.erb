@@ -21,15 +21,18 @@
 
 <% end %>
 
+
+
+
     <div class="row">
       <div class="col s12">
-        <ul class="pagination">
-          <li class="disabled"><a href="#"><i class="mdi-navigation-chevron-left"></i></a></li>
-          <li class="active"><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#"><i class="mdi-navigation-chevron-right"></i></a></li>
-        </ul>
+
+        <div class="apple_pagination">
+
+          <%= js_will_paginate @posts, :container => false %>
+        </div>
+
+
       </div>
     </div>
 
@@ -42,35 +45,27 @@
     <h3 class="popular-posts-title">Popular Posts</h3>
 
     <div class="row popular-posts">
-      <div class="col s12 m6 popular-post">
-        <div class="card">
-          <div class="card-image">
-            <img class="responsive-img" src="img/blog/mac.jpg" alt="mac desk">
-            <span class="card-title">5 code snippets for your projects</span>
-          </div>
-          <div class="card-content">
-            <p>How many times you thought that if you already had a simple block of code to do a simple task you wouldn't need to do it yourself, because lets face it, you don't want to reinvent the wheel do you?</p>
-          </div>
-          <div class="card-action">
-            <a href="post-1.html">Read more</a>
-          </div>
-        </div>
-      </div>
+
+      <% @popular_posts.each do |popular| %>
 
       <div class="col s12 m6 popular-post">
         <div class="card">
           <div class="card-image">
-            <img class="responsive-img" src="img/blog/lenses.jpg" alt="canon lenses">
-            <span class="card-title">Are stock photos in decline?</span>
+            <%= image_tag popular.image.url(:medium) %>
+            <span class="card-title"><% popular.title %></span>
           </div>
           <div class="card-content">
-            <p>Does it worth to pursue a career as a stock photographer? With so many sites and photographers providing free photos it might look that it doesn't worth even think about it as a career.</p>
+            <p><%= popular.description %></p>
           </div>
           <div class="card-action">
-            <a href="post-1.html">Read more</a>
+            <%= link_to "READ MORE",popular %>
           </div>
         </div>
       </div>
+
+      <% end %>
+
+
     </div>
 
   </div>
@@ -82,63 +77,22 @@
     <h3 class="archive-posts-title">Archive</h3>
 
     <div class="row archive-posts">
+
+<% @archive.each do |archive| %>
       <div class="col s12 m6">
-        <div class="archive-post">
-          <h6><b><a href="post-1.html">HTML5 Code Snippets</a></b></h6>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel exercitationem error, iure recusandae est doloribus.</p>
-        </div>
 
         <div class="archive-post">
-          <h6><b><a href="post-1.html">CSS3 Code Snippets</a></b></h6>
-          <p>Quas at, voluptate sint ullam aperiam, distinctio minus. Hic facere perferendis delectus fugiat, tempore veniam.</p>
+          <h6><b><%= link_to archive.title,archive %></b></h6>
+          <p><%= archive.description %></p>
         </div>
 
-        <div class="archive-post">
-          <h6><b><a href="post-1.html">Stock Photos Bundle</a></b></h6>
-          <p>Maiores iusto! Facilis commodi, repellat tempora facere neque accusantium corrupti ullam nostrum perferendis.</p>
-        </div>
-
-        <div class="archive-post">
-          <h6><b><a href="post-1.html">How to Install Drupal</a></b></h6>
-          <p>Quae, minus laborum est cumque ratione ad sed. Voluptates unde blanditiis sit recusandae molestiae eum libero.</p>
-        </div>
       </div>
 
-      <div class="col s12 m6">
-        <div class="archive-post">
-          <h6><b><a href="post-1.html">Advantages of a CMS</a></b></h6>
-          <p>Explicabo omnis est quibusdam ipsa suscipit, vero harum, beatae autem aliquid cum quos dolores. Sunt numquam.</p>
-        </div>
+<% end %>
 
-        <div class="archive-post">
-          <h6><b><a href="post-1.html">How to Work with SVG</a></b></h6>
-          <p>Blanditiis, ad omnis, possimus similique, quas in eos suscipit accusantium laudantium necessitatibus architecto.</p>
-        </div>
-
-        <div class="archive-post">
-          <h6><b><a href="post-1.html">Learn PhotoShop Tricks</a></b></h6>
-          <p>Animi dicta nulla voluptatibus tempora distinctio illo consectetur deleniti, aspernatur cum inventore sed veniam.</p>
-        </div>
-
-        <div class="archive-post">
-          <h6><b><a href="post-1.html">Design Guidelines for 2015</a></b></h6>
-          <p> nesciunt optio quae odit repellendus ab natus dolorum incidunt, corporis blanditiis ea labore molestiae.</p>
-        </div>
-      </div>
     </div>
 
-    <div class="archive-search">
-      <div class="row">
-        <form class="col s12" method="post">
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="archive-search" type="text" class="validate">
-              <label for="archive-search">Search the blog</label>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
+
 
   </div>
 </div>
