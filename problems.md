@@ -71,3 +71,29 @@ Caution: don't use assets/images/...
 this path '/assets/materialize/user.png' is goes to open '/assets/images/materialize/user.png' file,
  
  rails always avoids images folder name after assets folder in ruby code ! 
+
+
+5. how to add custom layout in devise sign in page ?
+
+solution:
+
+step 1: make a controller named sessions using this command
+
+rails g controller Sessions
+
+step 2: then, copy and paste the code in the sessions_controller.rb after removing past code:
+
+class SessionsController < Devise::SessionsController
+  layout 'themes/materialize/main_layout', only: [:new]
+end
+
+
+step 3: add this line in config->routes.rb
+
+sessions: 'sessions'
+
+before: devise_for :users, controllers: {registrations: 'registrations'}
+
+after: devise_for :users, controllers: {registrations: 'registrations',sessions: 'sessions'}
+
+and finally restart the server.

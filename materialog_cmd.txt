@@ -4,3 +4,4 @@
 4. rails g scaffold Comment fname:string lname:string email:string message:text post:references
 5. rails generate paperclip comment image
 6. rake db:migrate
+7. rails g controller Sessions

@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   #before_action :authenticate_user!
 
-  #layout 'themes/materialize/main_layout'
+  layout 'themes/materialize/main_layout',except: :new
   # GET /comments
   # GET /comments.json
   def index

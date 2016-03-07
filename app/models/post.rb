@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 
   ## Using for post image
 
-  has_attached_file :image, styles: { large:'953x536#',medium: '300x300>', thumb: '100x100#' }, default_url: '/images/:style/missing.png'
+  has_attached_file :image, styles: { large:'953x536#',medium: '300x300>', thumb: '100x100#' }
 
   ## For image validation
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/

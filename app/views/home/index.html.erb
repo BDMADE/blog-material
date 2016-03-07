@@ -10,7 +10,7 @@
             <span class="card-title"><%= post.title %></span>
           </div>
           <div class="card-content">
-            <p><%= truncate post.description,length:270 %></p>
+            <p><%= truncate post.description.html_safe,length:270 %></p>
           </div>
           <div class="card-action">
             <%= link_to 'READ MORE',post %>
@@ -55,7 +55,7 @@
             <span class="card-title"><% popular.title %></span>
           </div>
           <div class="card-content">
-            <p><%=truncate popular.description,length: 175 %></p>
+            <%=truncate popular.description.html_safe,length: 175 %>
           </div>
           <div class="card-action">
             <%= link_to "READ MORE",popular %>
@@ -83,7 +83,7 @@
 
         <div class="archive-post">
           <h6><b><%= link_to archive.title,archive %></b></h6>
-          <p><%= truncate archive.description, length:130 %></p>
+          <%= truncate archive.description.html_safe, length:130 %>
         </div>
 
       </div>
