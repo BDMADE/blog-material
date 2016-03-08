@@ -4,19 +4,19 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Fname</th>
-      <th>Lname</th>
-      <th>Image</th>
-      <th>Email</th>
-      <th>Message</th>
-      <th>Post Title</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Fname</th>
+    <th>Lname</th>
+    <th>Image</th>
+    <th>Email</th>
+    <th>Message</th>
+    <th>Post Title</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @comments.each do |comment| %>
+  <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.fname %></td>
         <td><%= comment.lname %></td>
@@ -25,10 +25,12 @@
         <td><%= comment.message %></td>
         <td><%= comment.post.title %></td>
         <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.id==comment.post.user_id ||current_user.role.name == 'admin' %>
+            <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+            <td><%= link_to 'Destroy', comment, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <% end %>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 

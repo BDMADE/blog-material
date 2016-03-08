@@ -14,7 +14,7 @@
 
     <p>
       <strong>Description:</strong>
-      <%= @post.description %>
+      <%= @post.description.html_safe %>
     </p>
 
     <p>
@@ -43,7 +43,7 @@
 
         <h1 class="post-title"><%= @post.title %></h1>
         <span class="post-date"><%= @post.created_at.strftime('%B %d, %Y') %></span>
-        <%= @post.description %>
+        <%= @post.description.html_safe %>
 
       </div>
     </div>

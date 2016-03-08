@@ -18,10 +18,10 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= image_tag post.image.url(:thumb) %></td>
-        <td><%= truncate post.description,length: 160 %></td>
+        <td><%= truncate post.description.html_safe,length: 160 %></td>
         <td><%= post.user.name %></td>
         <td><%= link_to 'Show', post %></td>
-        <% if current_user.id==post.user_id %>
+        <% if current_user.id==post.user_id ||current_user.role.name == 'admin' %>
             <td><%= link_to 'Edit', edit_post_path(post) %></td>
             <td><%= link_to 'Destroy', post, method: :delete, data: {confirm: 'Are you sure?'} %></td>
         <% end %>
