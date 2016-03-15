@@ -46,7 +46,7 @@ group :development do
 end
 
 # Use Puma as the app server
-gem 'puma'
+#gem 'puma'
 # Using rake cache tools
 gem 'rack-cache', :require => 'rack/cache'
 # install gem better_error

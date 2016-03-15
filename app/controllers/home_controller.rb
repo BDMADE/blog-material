@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
-  
+
+  layout 'themes/bamboo/main_layout',except: 'admin'
   def index
   end
 

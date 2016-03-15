@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--[if IE 7 ]> <html class="ie ie7"> <![endif]-->
+<!--[if IE 8 ]> <html class="ie ie8"> <![endif]-->
+<!--[if IE 9 ]> <html class="ie ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="" lang="en"> <!--<![endif]-->
+<%= render 'layouts/themes/bamboo/head' %>
+
+<%= csrf_meta_tags %>
+<body>
+
+<!-- PRELOADER -->
+<%= render 'layouts/themes/bamboo/preloader' %>
+<!-- END / PRELOADER -->
+
+<!-- PAGE WRAP -->
+<div id="page-wrap">
+  <div class="page-container">
+
+    <!-- BLOG MAIN CONTENT -->
+    <%= yield %>
+
+
+    
+    <!-- BLOG MAIN CONTENT -->
+
+    <!-- SIDEBAR PAGE -->
+    <aside class="sidebar-page">
+      <!-- HEADER -->
+      <header id="page-header">
+        <!-- LOGO -->
+        <%= render 'layouts/themes/bamboo/logo' %>
+        <!-- END / LOGO -->
+
+        <!-- NAVIGATION -->
+        <%= render 'layouts/themes/bamboo/nav' %>
+        <!-- END / NAVIGATION -->
+      </header>
+      <!-- END / HEADER -->
+
+      <!-- WIDGET WRAPPER -->
+      <div class="widget-wrapper">
+
+
+
+        <!-- WIDGET LATEST POST -->
+        <%= render 'layouts/themes/bamboo/latest' %>
+        <!-- END / WIDGET LATEST POST -->
+
+        <!-- WIDGET Popular Post -->
+        <%= render 'layouts/themes/bamboo/popular' %>
+        <!-- END / WIDGET FLICKR -->
+
+
+
+        <!-- WIDGET TAG CLOUD -->
+        <%= render 'layouts/themes/bamboo/tag' %>
+        <!-- END / WIDGET TAG CLOUD -->
+      </div>
+      <!-- END / WIDGET WRAPPER -->
+
+      <!-- PAGE FOOTER -->
+      <%= render 'layouts/themes/bamboo/footer' %>
+      <!-- END / PAGE FOOTER -->
+
+    </aside>
+    <!-- END / SIDEBAR PAGE -->
+  </div>
+</div>
+<!-- END / PAGE WRAP -->
+
+<!-- LOAD JQUERY -->
+<%= render 'layouts/themes/bamboo/script' %>
+
+
+</body>
+</html>
