@@ -4,3 +4,6 @@
 4. rails g scaffold Comment fname:string lname:string email:string message:text post:references
 5. rails generate paperclip comment image
 6. rake db:migrate
+7.rails g scaffold font name:string
+8.rails g scaffold category name:string
+9.rake db:migrate

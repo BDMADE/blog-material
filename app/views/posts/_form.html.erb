@@ -21,6 +21,15 @@
     <div class="form-group">
       <%= f.label :image %><br>
       <%= f.file_field :image ,:class=>'form-control' %>
+      <% if !:image.nil? %>
+     <b>Image uploaded:</b> <%= @post.image.original_filename %>
+     <% end %>
+    </div>
+
+  <div class="form-group">
+    <%= f.label :font %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :category %><br>
+    <%= f.collection_select :font_id,Font.all,:id, :name, prompt: true %>
+    <%= f.collection_select :category_id,Category.all,:id, :name, prompt: true %>
     </div>
 
   <div class="form-group">
@@ -31,8 +40,9 @@
 
     <%= f.hidden_field :user_id ,value: current_user.id %>
   </div>
-  <div class="actions">
+  <div class="form-group">
     <%= f.submit %>
+    <%= link_to 'Back', posts_path %>
   </div>
 <% end %>
 

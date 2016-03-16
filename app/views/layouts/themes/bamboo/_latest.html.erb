@@ -1,32 +1,19 @@
+<% @latest=Post.all.order(created_at: :desc).limit(3) %>
+
 <div class="widget widget_latest_post">
-          <h4>Latest post</h4>
-          <ul>
-            <li>
-              <div class="image-wrap">
-                <img src="images/latest/1.jpg" alt="">
-              </div>
-              <div class="content-text">
-                <a href="#">Suspendisse lobortis mollis arcu quis</a>
-                <span class="date">Jan 10, 2014</span>
-              </div>
-            </li>
-            <li>
-              <div class="image-wrap">
-                <img src="images/latest/2.jpg" alt="">
-              </div>
-              <div class="content-text">
-                <a href="#">Suspendisse lobortis mollis arcu quis</a>
-                <span class="date">Jan 10, 2014</span>
-              </div>
-            </li>
-            <li>
-              <div class="image-wrap">
-                <img src="images/latest/3.jpg" alt="">
-              </div>
-              <div class="content-text">
-                <a href="#">Suspendisse lobortis mollis arcu quis</a>
-                <span class="date">Jan 10, 2014</span>
-              </div>
-            </li>
-          </ul>
-        </div>
+  <h4>Latest post</h4>
+  <ul>
+
+    <% @latest.each do |latest| %>
+        <li>
+          <div class="image-wrap">
+            <%= image_tag latest.image.url(:thumb)%>
+          </div>
+          <div class="content-text">
+            <a href="#"><%= latest.title %></a>
+            <span class="date"><%= latest.created_at.strftime('%d %B,%Y') %></span>
+          </div>
+        </li>
+    <% end %>
+  </ul>
+</div>

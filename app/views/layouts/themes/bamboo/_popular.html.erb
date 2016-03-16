@@ -1,14 +1,10 @@
+<% @popular=Post.all.order(created_at: :desc).limit(6) %>
+
 <div class="widget widget_instagram">
-          <h4>Popular Post</h4>
-          <ul class="instagram">
-            <li><a href="#"><img src="images/instagram/1.jpg" alt=""></a></li>
-            <li><a href="#"><img src="images/instagram/2.jpg" alt=""></a></li>
-            <li><a href="#"><img src="images/instagram/3.jpg" alt=""></a></li>
-            <li><a href="#"><img src="images/instagram/4.jpg" alt=""></a></li>
-            <li><a href="#"><img src="images/instagram/5.jpg" alt=""></a></li>
-            <li><a href="#"><img src="images/instagram/6.jpg" alt=""></a></li>
-            <li><a href="#"><img src="images/instagram/7.jpg" alt=""></a></li>
-            <li><a href="#"><img src="images/instagram/8.jpg" alt=""></a></li>
-            <li><a href="#"><img src="images/instagram/9.jpg" alt=""></a></li>
-          </ul>
-        </div>
+  <h4>Popular Post</h4>
+  <ul class="instagram">
+    <% @popular.each do |popular| %>
+        <li><a href="#"><%= image_tag popular.image.url(:thumb) %></a></li>
+    <% end %>
+  </ul>
+</div>

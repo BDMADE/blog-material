@@ -1,25 +1,194 @@
-<p id="notice"><%= notice %></p>
+<% if user_signed_in? %>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+    <p>
+      <strong>Title:</strong>
+      <%= @post.title %>
+    </p>
 
-<p>
-  <%= image_tag @post.image.url(:medium) %>
-</p>
+    <p>
+      <%= image_tag @post.image.url(:medium) %>
+    </p>
 
 
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= truncate @post.description.html_safe, lenght: '56' %>
+    </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user.name %>
-</p>
+    <p>
+      <strong>User:</strong>
+      <%= @post.user.name %>
+    </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+
+
+
+
+    <% if current_user.id==@post.user_id %>
+        <%= link_to 'Edit', edit_post_path(@post) %> |
+
+    <% end %>
+
+
+    <%= link_to 'Back', posts_path %>
+
+<% else %>
+
+    <section class="blog-content blog-standard">
+      <!-- POST -->
+      <div class="post">
+        <div class="post-cat">
+          <ul>
+            <li><%= @post.category.name %></li>
+          </ul>
+        </div>
+        <div class="post-title">
+          <h1><%= @post.title %></h1>
+        </div>
+        <div class="post-meta">
+                    <span class="author">
+                      <i class="fa fa-user"></i>
+                        By <a href="#"><%= @post.user.name %></a>
+                    </span>
+                    <span class="date">
+                        <i class="fa fa-clock-o"></i>
+                        <a href="#"><%= @post.created_at.strftime('%d %B,%Y') %></a>
+                    </span>
+                    <span class="comment">
+                        <i class="fa fa-comment"></i>
+                        <a href="#"><%= @post.comments.count %> Comments</a>
+                    </span>
+        </div>
+        <div class="post-media">
+          <div class="image-wrap">
+            <%= image_tag @post.image.url(:large) %>
+          </div>
+        </div>
+        <div class="post-body">
+          <div class="post-entry">
+            <%= @post.description.html_safe %>
+          </div>
+        </div>
+        <div class="post-footer">
+          <div class="post-tag">
+            <h5>Tag:</h5>
+            <%= @post.category.name %>
+          </div>
+          <div class="post-share">
+            <div class="share">
+              <a href="#">
+                <i class="fa fa-facebook"></i>
+                <span class="count">500</span>
+              </a>
+              <a href="#">
+                <i class="fa fa-twitter"></i>
+                <span class="count">320</span>
+              </a>
+              <a href="#">
+                <i class="fa fa-dribbble"></i>
+                <span class="count">400</span>
+              </a>
+              <a href="#">
+                <i class="fa fa-instagram"></i>
+                <span class="count">150</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END / POST -->
+
+      <!-- COMMENTS -->
+      <div id="comments">
+        <div class="comments-inner-wrap">
+          <h3 id="comments-title" class="h4">( <%= @post.comments.count %> ) Comments</h3>
+          <ul class="commentlist">
+
+            <% @comments.each do |comment| %>
+
+                <li class="comment">
+                  <div class="comment-box">
+                    <div class="comment-author">
+                      <%= image_tag comment.image.url(:thumb),:class=>'circle responsive-img' %>
+                    </div>
+                    <div class="comment-body">
+                      <cite class="fn"><b><%= comment.fname %>&nbsp;<%= comment.lname %></b></cite>
+
+                      <div class="comment-meta">
+                        <span><%= comment.created_at.strftime('%B %d, %Y') %></span>
+                      </div>
+                      <p><%= comment.message %></p>
+
+
+                    </div>
+                  </div>
+                </li>
+
+            <% end %>
+
+          </ul>
+        </div>
+      </div>
+      <!-- END / COMMENTS -->
+
+
+      <!-- LEAVER YOUR COMMENT -->
+      <div id="respond">
+        <div class="reply-title">
+          <h3 class="h4">Leave your comment</h3>
+        </div>
+        <!-- COMMENT FORM -->
+        <%= form_for @comment, html: {multipart: true, :role => 'form'} do |f| %>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-item form-name">
+                  <%= f.text_field :fname, :required => 'required', :placeholder => 'Your first name *' %>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-item form-email">
+                  <%= f.text_field :lname, :required => 'required', :placeholder => 'Your last name *' %>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-item">
+                  <%= f.text_field :email, :class => 'validate', :required => 'required', :placeholder => 'Your email *' %>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-item">
+                  <%= f.label :image %>
+                  <%= f.file_field :image %>
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="form-item">
+                  <%= f.hidden_field :post_id, :value => params[:id] %>
+                </div>
+              </div>
+
+
+              <div class="col-md-12">
+                <div class="form-item form-textarea-wrapper">
+                  <%= f.text_area :message, :required => 'required', :placeholder => 'Your message in here *' %>
+                </div>
+              </div>
+              <div class="form-actions">
+                <input type="submit" value="Comment" class="pi-btn" ,name="action">
+              </div>
+            </div>
+        <% end %>
+        <!-- END / COMMENT FORM -->
+
+      </div>
+      <!-- END / LEAVER YOUR COMMENT -->
+
+
+    </section>
+
+<% end %>

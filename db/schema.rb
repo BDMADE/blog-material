@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305142922) do
+ActiveRecord::Schema.define(version: 20160315170256) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string   "fname"
@@ -29,9 +35,18 @@ ActiveRecord::Schema.define(version: 20160305142922) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
 
+  create_table "fonts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "font_class"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
+    t.integer  "category_id"
+    t.integer  "font_id"
     t.integer  "user_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -41,6 +56,8 @@ ActiveRecord::Schema.define(version: 20160305142922) do
     t.datetime "image_updated_at"
   end
 
+  add_index "posts", ["category_id"], name: "index_posts_on_category_id"
+  add_index "posts", ["font_id"], name: "index_posts_on_font_id"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "roles", force: :cascade do |t|

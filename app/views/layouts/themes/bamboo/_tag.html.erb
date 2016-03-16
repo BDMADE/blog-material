@@ -1,14 +1,10 @@
+<% @tags=Category.all %>
 <div class="widget widget_tag_cloud">
           <h4>Tag cloud</h4>
           <div class="tagcloud">
-            <a href="#">Recipe</a>
-            <a href="#">Chicken</a>
-            <a href="#">Wordpress</a>
-            <a href="#">Photoshop</a>
-            <a href="#">JQuery</a>
-            <a href="#">Chicken</a>
-            <a href="#">Wordpress</a>
-            <a href="#">Photoshop</a>
-            <a href="#">JQuery</a>
+            <% @tags.each do |tag| %>
+            <a href="#"><%= tag.name %></a>
+<% end %>
+
           </div>
         </div>

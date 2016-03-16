@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  layout 'application'
+  before_action :authenticate_user!,except: :show
+  layout 'themes/bamboo/main_layout' ,only: :show
 
   # GET /posts
   # GET /posts.json
@@ -11,6 +12,11 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @comment=Comment.new
+    @comments=Comment.where(post_id: params[:id])
+    ## set the session for containing it's post id
+    set_session
+
   end
 
   # GET /posts/new
@@ -70,6 +76,12 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :description, :user_id,:image)
+      params.require(:post).permit(:title, :description, :user_id,:image,:font_id,:category_id)
     end
+
+  ## make a session for containing post params id and it will use in comment/edit method for returning current page
+  def set_session
+    session[:id]=params[:id]
+  end
+
 end

@@ -1302,22 +1302,19 @@ body.single-post .blog-content {
 }
 
 .pi-icon-user {
-  background: url("../images/icon-user.png") no-repeat 0 0;
   background-size: 12px;
   width: 12px;
   height: 12px;
 }
 
 .pi-icon-clock {
-  background: url("../images/icon-clock.png") no-repeat 0 0;
-  background-size: 12px;
+   background-size: 12px;
   width: 12px;
   height: 12px;
 }
 
 .pi-icon-comment {
-  background: url("../images/icon-comment.png") no-repeat 0 0;
-  background-size: 14px 12px;
+   background-size: 14px 12px;
   width: 14px;
   height: 12px;
 }
@@ -1692,7 +1689,7 @@ body.single-post .blog-content {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 88px;
+  max-width: 90px;
 }
 .blog-grid .post-cat {
   text-align: left;

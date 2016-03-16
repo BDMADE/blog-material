@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
   belongs_to :user
+  belongs_to :font
+  belongs_to :category
   has_many :comments
 
   ## Using for post image

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :fonts
+  resources :categories
   resources :comments
   resources :posts
   resources :posts

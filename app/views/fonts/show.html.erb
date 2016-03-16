@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @font.name %>
+</p>
+
+<p>
+  <strong>Font class:</strong>
+  <%= @font.font_class %>
+</p>
+
+<%= link_to 'Edit', edit_font_path(@font) %> |
+<%= link_to 'Back', fonts_path %>

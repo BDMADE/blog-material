@@ -1,21 +1,22 @@
 <section class="blog-content blog-grid">
       <div class="row">
+      <% @posts.each do |post| %>
         <!-- POST -->
         <div class="col-sm-6 col-md-4">
           <div class="post">
             <div class="post-cat">
               <ul>
-                <li><a href="#">Fashion</a></li>
+                <li><a href="#"><%= post.category.name %></a></li>
               </ul>
             </div>
             <div class="post-format">
               <a href="#">
-                <i class="fa fa-video-camera"></i>
+                <i class="<%= post.font.font_class %>"></i>
               </a>
             </div>
             <div class="post-media">
               <div class="image-wrap">
-                <img src="images/blog/1.jpg" alt="">
+                <%= image_tag post.image.url(:medium) %>
               </div>
               <div class="post-share">
                 <div class="share">
@@ -39,26 +40,26 @@
               </div>
             </div>
             <div class="post-title">
-              <h2><a href="single.html">Nam commodo turpis sit amet magna</a></h2>
+              <h2><%=link_to post.title, post %></h2>
             </div>
             <div class="post-meta">
                             <span class="author">
                                 <i class="pi-icon pi-icon-user"></i>
-                                By <a href="#">Admin</a>
+                                By <a href="#"><%= post.user.name %></a>
                             </span>
                             <span class="date">
                                 <i class="pi-icon pi-icon-clock"></i>
-                                <a href="#">Jan 10, 2014</a>
+                                <a href="#"><%= post.created_at.strftime('%d %B,%Y') %></a>
                             </span>
                             <span class="comment">
                                 <i class="pi-icon pi-icon-comment"></i>
-                                <a href="#">05 Comments</a>
+                                <a href="#"><%= post.comments.count %> Comments</a>
                             </span>
             </div>
           </div>
         </div>
         <!-- END / POST -->
-       
+       <% end %>
       </div>
 
 </section>
